@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"testing"
 
 	_ "github.com/lib/pq"
@@ -19,10 +20,18 @@ type testUser struct {
 }
 
 func setupTestDB() *sql.DB {
-	// Use a separate test database or schema if possible
 	db, err := sql.Open("postgres", "host=localhost port=5432 user=postgres password=postgres dbname=usersdb sslmode=disable")
 	if err != nil {
 		panic(err)
+	}
+	// Run init.sql to ensure schema exists
+	initSQL, err := os.ReadFile("init.sql")
+	if err != nil {
+		panic("Failed to read init.sql: " + err.Error())
+	}
+	_, err = db.Exec(string(initSQL))
+	if err != nil {
+		panic("Failed to execute init.sql: " + err.Error())
 	}
 	// Clean up users table before each test
 	_, _ = db.Exec("DELETE FROM users")
