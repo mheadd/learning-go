@@ -81,6 +81,13 @@ func main() {
 
 	// Simple health check endpoint
 	r.GET("/health", func(c *gin.Context) {
+		if err := db.Ping(); err != nil {
+			c.JSON(http.StatusServiceUnavailable, gin.H{
+				"status": "unhealthy",
+				"error":  "Database not reachable",
+			})
+			return
+		}
 		c.JSON(http.StatusOK, gin.H{
 			"status": "healthy",
 		})
