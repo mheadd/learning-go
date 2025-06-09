@@ -1,3 +1,5 @@
+[![Go CI](https://github.com/mheadd/learning-go/actions/workflows/test.yml/badge.svg)](https://github.com/mheadd/learning-go/actions/workflows/test.yml)
+
 # Learning Go with Gin Web Framework
 
 This is a simple REST API built with Go and the Gin web framework. It demonstrates basic routing, JSON handling, HTTP methods, and PostgreSQL database integration. The app is containerized with Docker and uses a configuration file for easy setup.
