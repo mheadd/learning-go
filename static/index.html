@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Gin API Demo</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Go Gin API Demo</h1>
+        
+        <div class="api-section">
+            <h2>Available Endpoints</h2>
+            <ul>
+                <li><strong>GET /health</strong> - Health check endpoint</li>
+                <li><strong>GET /api/users</strong> - Retrieve all users</li>
+                <li><strong>POST /api/users</strong> - Create a new user</li>
+            </ul>
+        </div>
+
+        <div class="api-section">
+            <h2>Create New User</h2>
+            <form id="createUserForm" class="user-form">
+                <div class="form-group">
+                    <label for="userId">User ID:</label>
+                    <input type="text" id="userId" required>
+                </div>
+                <div class="form-group">
+                    <label for="userName">Name:</label>
+                    <input type="text" id="userName" required>
+                </div>
+                <button type="submit" class="btn">Create User</button>
+            </form>
+        </div>
+
+        <div class="api-section">
+            <h2>User List</h2>
+            <p>Click the button below to see all users:</p>
+            <button class="btn" id="getUsersBtn">Get Users</button>
+            <div id="usersList" class="users-list"></div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

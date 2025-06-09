@@ -1,0 +1,8 @@
+{
+  "db_host": "db",
+  "db_user": "postgres",
+  "db_password": "postgres",
+  "db_name": "usersdb",
+  "db_port": "5432",
+  "app_port": "8080"
+}
