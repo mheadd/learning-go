@@ -123,7 +123,9 @@ func main() {
 	}
 
 	// Run the server
-	r.Run(":" + config.AppPort)
+	if err := r.Run(":" + config.AppPort); err != nil {
+		log.Fatalf("Failed to start server: %v", err)
+	}
 }
 
 // createUser handles POST requests to create a new user
