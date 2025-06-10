@@ -19,12 +19,12 @@ type User struct {
 }
 
 type Config struct {
-	DBHost    string `json:"db_host"`
-	DBUser    string `json:"db_user"`
+	DBHost     string `json:"db_host"`
+	DBUser     string `json:"db_user"`
 	DBPassword string `json:"db_password"`
-	DBName    string `json:"db_name"`
-	DBPort    string `json:"db_port"`
-	AppPort   string `json:"app_port"`
+	DBName     string `json:"db_name"`
+	DBPort     string `json:"db_port"`
+	AppPort    string `json:"app_port"`
 }
 
 var db *sql.DB
@@ -39,6 +39,26 @@ func loadConfig() {
 	decoder := json.NewDecoder(file)
 	if err := decoder.Decode(&config); err != nil {
 		log.Fatalf("Failed to decode config.json: %v", err)
+	}
+
+	// Override with environment variables if set
+	if v := os.Getenv("DB_HOST"); v != "" {
+		config.DBHost = v
+	}
+	if v := os.Getenv("DB_USER"); v != "" {
+		config.DBUser = v
+	}
+	if v := os.Getenv("DB_PASSWORD"); v != "" {
+		config.DBPassword = v
+	}
+	if v := os.Getenv("DB_NAME"); v != "" {
+		config.DBName = v
+	}
+	if v := os.Getenv("DB_PORT"); v != "" {
+		config.DBPort = v
+	}
+	if v := os.Getenv("APP_PORT"); v != "" {
+		config.AppPort = v
 	}
 }
 
