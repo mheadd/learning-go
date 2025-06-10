@@ -2,7 +2,7 @@
 
 # Learning Go with Gin Web Framework
 
-This is a simple REST API built with Go and the Gin web framework. It demonstrates basic routing, JSON handling, HTTP methods, and PostgreSQL database integration. The app is containerized with Docker and uses a configuration file for easy setup.
+This is a simple REST API built with Go and the [Gin web framework](https://gin-gonic.com/). It demonstrates basic routing, JSON handling, HTTP methods, and PostgreSQL database integration. The app is containerized with Docker and uses a configuration file for easy setup.
 
 ## Features
 - RESTful API for managing users
@@ -22,12 +22,12 @@ This is a simple REST API built with Go and the Gin web framework. It demonstrat
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
+git clone <repo-url>
 cd learning-go
 ```
 
 ### 2. Configuration
-Edit `config.json` to set database and app port settings:
+If desired, edit `config.json` to set database and app port settings (otherwise the app just uses the default values):
 ```json
 {
   "db_host": "db",
@@ -76,7 +76,7 @@ Response:
   ```
 
 ## Database Initialization
-- The schema is defined in `init.sql` and is run automatically when the app starts.
+- The database schema is defined in `init.sql` and is run automatically when the app starts.
 - Example table:
   ```sql
   CREATE TABLE IF NOT EXISTS users (
