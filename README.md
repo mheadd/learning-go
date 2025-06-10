@@ -2,7 +2,7 @@
 
 [![Go Security Check](https://github.com/mheadd/learning-go/actions/workflows/gosec.yml/badge.svg)](https://github.com/mheadd/learning-go/actions/workflows/gosec.yml)
 
-# Learning Go with Gin Web Framework
+# Learning Go: Experiments in AI Assisted Coding
 
 This is a simple REST API built with Go and the [Gin web framework](https://gin-gonic.com/). It demonstrates basic routing, JSON handling, HTTP methods, and PostgreSQL database integration. The app is containerized with Docker and uses a configuration file for easy setup.
 
